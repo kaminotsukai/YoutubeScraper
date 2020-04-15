@@ -3,6 +3,7 @@ const stringify = require("csv-stringify");
 const fs = require("fs");
 const path = require("path");
 const date = require("./helper/date");
+const csv = require("./helper/csv");
 
 const existChannelLists = require("./definitions/exist_channel_list");
 
@@ -92,21 +93,6 @@ async function scrapingYoutube(page, channelUrl) {
     return data;
   });
 
-  await outputCsv(data);
-}
-
-/**
- * csvファイルを作成・編集する
- * @param {*} data
- */
-async function outputCsv(data) {
-  stringify(data, (error, csvString) => {
-    fs.appendFile(
-      path.join(__dirname, `csv/${date.getYesterday("YYYY-MM-DD")}-movies.csv`),
-      csvString,
-      (err) => {
-        if (err) throw err;
-      }
-    );
-  });
+  const yesterday = await date.getYesterday('YYYY-MM-DD');
+  await csv.outputCsv(data, yesterday);
 }
