@@ -1,0 +1,20 @@
+{
+  "name": "youtubescraper",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "ex-scraper": "node existChannelScraper.js",
+    "new-scraper": "node newChannelScraper.js"
+  },
+  "keywords": [
+    "puppeteer",
+    "sv-stringify"
+  ],
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "csv-stringify": "^5.3.6",
+    "puppeteer": "^2.1.1"
+  }
+}
