@@ -54,14 +54,16 @@ async function scrapingYoutube(page, channelUrl) {
     const data = [];
 
     for (let i = 1; i <= elementCount; i++) {
-      let text = document.querySelectorAll(
+      let text = document.querySelector(
         `ytd-grid-renderer #items ytd-grid-video-renderer:nth-child(${i}) #dismissable #details #meta h3 a`
       );
-      let movie = [
-        text[0].textContent,
-        "https://www.youtube.com/" + text[0].getAttribute("href"),
-      ];
-      data.push(movie);
+
+      let href = "https://www.youtube.com/" + text.getAttribute("href").trim()
+      let sql = [
+        `INSERT INTO intro_movies (title, youtube_url) VALUES ('${text.textContent.trim()}', '${href}');`
+      ]
+
+      data.push(sql);
     }
 
     return data;

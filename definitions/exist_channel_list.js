@@ -28,6 +28,30 @@ const existChannelLists = [{
   {
     name: 'sinema',
     url: 'https://www.youtube.com/channel/UCAle-vAjc8dTkkLzOHW5FmA/videos'
+  },
+  {
+    name: 'spare-theater',
+    url: 'https://www.youtube.com/channel/UCF3rm4a7ZTvtSOZA3X83RIQ/videos'
+  },
+  {
+    name: 'another-theater',
+    url: 'https://www.youtube.com/channel/UCMukd95I_q7fmvkggfHfPOw/videos'
+  },
+  {
+    name: 'Occult-General',
+    url: 'https://www.youtube.com/channel/UCeT7LoTCwOeEDHne3bn1dIQ/videos'
+  },
+  {
+    name: 'movie-thief',
+    url: 'https://www.youtube.com/channel/UCBIrkoxtJQKDUygEndozagQ/videos'
+  },
+  {
+    name: 'サマってムービー映画あらすじをサクッと解説',
+    url: 'https://www.youtube.com/channel/UCZPgVUwhB0djgx93BbTaD4w/videos'
+  },
+  {
+    name: 'おずの10分シアター',
+    url: 'https://www.youtube.com/channel/UChFqcdUJ5PQA9Cs8m_S7Jag/videos'
   }
 ]
 

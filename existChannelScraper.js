@@ -29,6 +29,7 @@ const existChannelLists = require("./definitions/exist_channel_list");
 async function scraping(page, channelLists) {
   for (channel of channelLists) {
     await scrapingYoutube(page, channel.url);
+    process.stdout.write('.')
   }
 }
 
@@ -82,12 +83,12 @@ async function scrapingYoutube(page, channelUrl) {
       // nullで抜ける
       if (text === null) break;
 
-      let movie = [
-        text.textContent.trim(),
-        "https://www.youtube.com/" + text.getAttribute("href").trim(),
-      ];
+      let href = "https://www.youtube.com/" + text.getAttribute("href").trim()
+      let sql = [
+        `INSERT INTO intro_movies (title, youtube_url) VALUES ('${text.textContent.trim()}', '${href}');`
+      ]
 
-      data.push(movie);
+      data.push(sql);
     }
 
     return data;
