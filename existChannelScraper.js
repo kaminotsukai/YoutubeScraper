@@ -57,8 +57,7 @@ async function scrapingYoutube(page, channelUrl) {
     "#container > .input-wrapper > #labelAndInputContainer > #input-1 > .style-scope";
   await page.waitForSelector(search_field_selector);
   // 昨日の日付
-  // await page.type(search_field_selector, `after:${date.getYesterday("YYYY-MM-DD")}`);
-  await page.type(search_field_selector, "after:2020-04-10");
+  await page.type(search_field_selector, `after:${date.getExistScrapingDay("YYYY-MM-DD")}`);
   await page.keyboard.press("Enter");
 
   /////////////////////

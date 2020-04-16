@@ -7,6 +7,12 @@ exports.getYesterday = function (format) {
   return dateToStr24HPad0(yesterday, format)
 }
 
+exports.getExistScrapingDay = function (format) {
+  let now = new Date();
+  const yesterday = new Date(now.getFullYear(), now.getMonth(), now.getDate() - 2)
+  return dateToStr24HPad0(yesterday, format)
+}
+
 /**
  * 日付フォーマッター
  * @param {*} date 
