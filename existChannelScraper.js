@@ -1,7 +1,4 @@
 const puppeteer = require("puppeteer");
-const stringify = require("csv-stringify");
-const fs = require("fs");
-const path = require("path");
 const date = require("./helper/date");
 const csv = require("./helper/csv");
 
@@ -84,7 +81,7 @@ async function scrapingYoutube(page, channelUrl) {
 
       let href = "https://www.youtube.com/" + text.getAttribute("href").trim()
       let sql = [
-        `INSERT INTO intro_movies (title, youtube_url) VALUES ('${text.textContent.trim()}', '${href}');`
+        `INSERT INTO movies (title,title_for_search, youtube_url) VALUES ('${text.textContent.trim()}', '${text.textContent.trim()}','${href}');`
       ]
 
       data.push(sql);

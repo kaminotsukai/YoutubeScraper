@@ -1,16 +1,21 @@
-/**
- * 昨日日時を取得
- */
+// 昨日の日時を取得
 exports.getYesterday = function (format) {
   let now = new Date();
   const yesterday = new Date(now.getFullYear(), now.getMonth(), now.getDate() - 1)
   return dateToStr24HPad0(yesterday, format)
 }
 
+// スクレイピングする時間を取得
 exports.getExistScrapingDay = function (format) {
   let now = new Date();
   const yesterday = new Date(now.getFullYear(), now.getMonth(), now.getDate() - 2)
   return dateToStr24HPad0(yesterday, format)
+}
+
+// 今日の日時を取得
+exports.getToday = function (format) {
+  let now = new Date();
+  return dateToStr24HPad0(now, format)
 }
 
 /**

@@ -1,6 +1,7 @@
 const newChannelLists = require("./definitions/new_channel_list");
 
 const puppeteer = require("puppeteer");
+const date = require("./helper/date");
 const csv = require("./helper/csv");
 
 /**
@@ -60,7 +61,7 @@ async function scrapingYoutube(page, channelUrl) {
 
       let href = "https://www.youtube.com/" + text.getAttribute("href").trim()
       let sql = [
-        `INSERT INTO intro_movies (title, youtube_url) VALUES ('${text.textContent.trim()}', '${href}');`
+        `INSERT INTO movies (title, title_for_search, youtube_url) VALUES ('${text.textContent.trim()}', '${text.textContent.trim()}', '${href}');`
       ]
 
       data.push(sql);
@@ -69,6 +70,6 @@ async function scrapingYoutube(page, channelUrl) {
     return data;
   });
 
-
-  await csv.outputCsv(data, "new-channel");
+  const today = await date.getToday('YYYY-MM-DD');
+  await csv.outputCsv(data, `${today}-new-channel`);
 }
